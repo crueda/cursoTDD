@@ -1,0 +1,12 @@
+package eje;
+
+public class StringCalculatorTest {
+
+	
+	public int add (String number1, String number2) {
+		if (number1.equals("")||(number2.equals("")))
+			return 0;
+		
+		return 0;
+	}
+}

@@ -1,0 +1,37 @@
+package eje;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class StringCalculatorTest {
+
+	@Test
+	public void shouldReturn0WhenNumbersAreEmptycheckAddEmpty () {
+		// Given
+		String numbers = "";
+		
+		//When
+		int result = add(numbers);
+		
+		//Then
+		assertEquals(0, result);
+	}
+	
+	@Test
+	public void shouldReturnNumberWhenNumbersAreSingleValue () {
+		// Given
+		String numbers = "3";
+		int expectedValue = 3;
+		
+		//When
+		int result = add(numbers);
+		
+		//Then
+		assertEquals(expectedValue.result);
+	}
+	
+	private int add(String numbers) {
+		return 0;
+	}
+}

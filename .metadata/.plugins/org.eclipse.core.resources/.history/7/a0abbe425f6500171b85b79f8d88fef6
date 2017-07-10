@@ -1,0 +1,68 @@
+package eje;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class StringCalculatorTest {
+
+	private StringCalculator sut = new StringCalculator();
+	
+	@Test
+	public void shouldReturn0WhenNumbersAreEmptycheckAddEmpty () {
+		// Given
+		String numbers = "";
+		
+		//When
+		int result = sut.add(numbers);
+		
+		//Then
+		assertEquals(0, result);
+	}
+	
+	@Test
+	public void shouldReturnNumberWhenNumbersAreSingleValue () {
+		// Given
+		String numbers = "3";
+		int expectedValue = 3;
+		
+		//When
+		int result = sut.add(numbers);
+		
+		//Then
+		assertEquals(expectedValue, result);
+	}
+
+	@Test
+	public void shouldReturnSumTwoNumbers () {
+		// Given
+		String number1 = "3";
+		String number2 = "5";
+		int expectedValue = 8;
+		
+		//When
+		int result = sut.add(number1, number2);
+		
+		//Then
+		assertEquals(expectedValue, result);
+	}
+
+	@Test
+	public void shouldReturnSumManyNumbers () {
+		// Given
+		String[] vNumbers = new Syring[3];
+		vNumbers[0] = "2";
+		vNumbers[1] = "3";
+		vNumbers[2] = "3";
+				
+		int expectedValue = 8;
+		
+		//When
+		int result = sut.add(vNumbers);
+		
+		//Then
+		assertEquals(expectedValue, result);
+	}
+
+
+}
