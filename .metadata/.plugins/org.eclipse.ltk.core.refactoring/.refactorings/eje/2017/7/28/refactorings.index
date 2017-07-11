@@ -1,2 +1,6 @@
 1499682886274	Rename type 'StringCalculator'
 1499687065305	Move compilation unit
+1499765655572	Copy compilation unit
+1499765798737	Copy compilation unit
+1499770138047	Extract interface 'IStringCalculator'
+1499771804530	Extract interface 'IStringSplitter'
