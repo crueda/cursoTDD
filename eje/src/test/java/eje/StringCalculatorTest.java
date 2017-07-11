@@ -22,6 +22,7 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "";
 		int expected = 0;
+		
 		//When
 		int result = sut.add(numbers);
 		
@@ -35,7 +36,8 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "3";
 		int expectedValue = 3;
-		
+		when(mockedSplitter.parse(numbers)).thenReturn(new String[]{"3"});
+
 		//When
 		int result = sut.add(numbers);
 		
@@ -48,7 +50,8 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "3,5";
 		int expectedValue = 8;
-		
+		when(mockedSplitter.parse(numbers)).thenReturn(new String[]{"3,5"});
+
 		//When
 		int result = sut.add(numbers);
 		
@@ -62,6 +65,7 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "3,5,2";
 		int expectedValue = 10;
+		when(mockedSplitter.parse(numbers)).thenReturn(new String[]{"3,5,2"});
 						
 		//When
 		int result = sut.add(numbers);
@@ -76,6 +80,7 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "1\n2,3";
 		int expectedValue = 6;
+		when(mockedSplitter.parse(numbers)).thenReturn(new String[]{"1,2,3"});
 						
 		//When
 		int result = sut.add(numbers);
@@ -89,12 +94,14 @@ public class StringCalculatorTest {
 		// Given
 		String numbers = "//;\n1;2";
 		int expectedValue = 3;
-						
+		when(mockedSplitter.parse(anyString())).thenReturn(new String[]{"1,2"});
+
 		//When
 		int result = sut.add(numbers);
 		
 		//Then
 		assertThat(result, is(expectedValue));
+		//verify(mockedSplitter).parse(numbers);
 	}
 
 }
