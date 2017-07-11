@@ -1,0 +1,103 @@
+package eje;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+ 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+public class StringSplitterTest {
+
+	private StringSplitter sut = new StringSplitter();
+	
+	@Test
+	public void shouldReturn0WhenNumbersAreEmpty () {
+		// Given
+		String numbers = "";
+		String[] expected = new String[0];
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, is (expected));
+	}
+		
+	@Test
+	public void shouldReturnNumberWhenNumbersAreSingleValue () {
+		// Given
+		String numbers = "3";
+		String[] expected = new String[1];
+		expected[0] = "3";
+		
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, is (expected));
+	}
+
+	
+	@Test
+	public void shouldReturnAddWhenNumbersAreTwoValues () {
+		// Given
+		String numbers = "3,5";
+		String[] expected = new String[2];
+		expected[0] = "3";
+		expected[1] = "5";
+		
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, is(expected));
+	}
+
+	@Test
+	public void shouldReturnAddWhenNumbersAreMultipleValues () {
+		// Given
+		String numbers = "3,5,2";
+		String[] expected = new String[3];
+		expected[0] = "3";
+		expected[1] = "5";
+		expected[2] = "2";
+						
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, is(expected));
+	}
+
+	@Test
+	public void shouldReturnAddWhenNumbersAreMultipleValuesAndNewLineSeparators () {
+		// Given
+		String numbers = "1\n2,3";
+		String[] expected = new String[3];
+		expected[0] = "1";
+		expected[1] = "2";
+		expected[2] = "3";
+						
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, is(expected));
+	}
+
+	@Test
+	public void shouldReturnAddWhenNumbersAreMultipleValuesWithTokenAsDelimitator () {
+		// Given
+		String numbers = "//;\n1;2";
+		String[] expected = new String[2];
+		expected[0] = "1";
+		expected[1] = "2";
+						
+		//When
+		String[] result = sut.parse(numbers);
+		
+		//Then
+		assertThat(result, contains("1","2"));
+	}
+
+}

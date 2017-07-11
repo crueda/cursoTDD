@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StringCalculatorTest" project="eje" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="eje.StringCalculatorTest" time="0.0">
+    <testcase name="shouldReturnAddWhenNumbersAreMultipleValues" classname="eje.StringCalculatorTest" time="0.0"/>
+    <testcase name="shouldReturn0WhenNumbersAreEmpty" classname="eje.StringCalculatorTest" time="0.0"/>
+    <testcase name="shouldReturnNumberWhenNumbersAreSingleValue" classname="eje.StringCalculatorTest" time="0.0"/>
+    <testcase name="shouldReturnAddWhenNumbersAreTwoValues" classname="eje.StringCalculatorTest" time="0.0"/>
+  </testsuite>
+</testrun>
